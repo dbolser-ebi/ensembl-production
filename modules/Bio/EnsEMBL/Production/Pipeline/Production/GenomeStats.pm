@@ -18,6 +18,7 @@ sub run {
 
   foreach my $table (keys %genome_counts) {
     if ($table eq 'PredictionTranscript') {
+      next;
       my $aa = $dba->get_adaptor('Analysis');
       my @analysis = @{ $aa->fetch_all_by_feature_class('PredictionTranscript') };
       foreach my $analysis (@analysis) {
